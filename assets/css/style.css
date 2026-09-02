@@ -73,6 +73,7 @@
 .rounded-\[16px\]{border-radius:16px}
 .pt-2{padding-top:.5rem}
 .cb-nav-dropdown-panel{min-width:150px}
+:root{--page-base:#FBFBFA;--page-tint:#F7F1E8;--page-tint-deep:#EFE6D7}
 .cb-nav-dropdown-panel{background:#FFFFFF;border:1px solid #D8D3B0;border-radius:14px;padding:8px;box-shadow:0 20px 40px -20px rgba(57,30,3,.28)}
 .cb-nav-dropdown-link{color:#391E03cc;padding:10px 12px;border-radius:8px}
 .cb-nav-dropdown-link:hover{background:#D8D3B033;color:#391E03}
