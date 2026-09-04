@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="icon" href="assets/images/logo.png">
+  <title>FAQs — Chambers</title>
+  <meta name="description" content="Frequently asked questions about Chambers, the legal operating system for Indian advocates and law firms.">
+  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body style="background:var(--page-base);color:#391E03;font-family:var(--font-sans)">
+  <div class="min-h-screen">
+    <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+      <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-8">
+        <a class="flex items-center gap-2.5" href="index.html" style="color:#391E03"><img src="assets/images/logo.png" alt="Chambers" width="26" height="26"><span class="text-[20px] tracking-tight" style="font-family:var(--font-serif)">Chambers</span></a>
+        <nav class="hidden items-center gap-9 text-[13.5px] md:flex" style="color:#391E03cc">
+          <a href="index.html#product">Products</a><a href="index.html#about">About</a><a href="faqs.html" aria-current="page">Resources</a><a href="pricing.html">Pricing</a><a href="mailto:team@runchambers.com">Contact Us</a>
+        </nav>
+        <div class="flex items-center gap-2"><a href="https://stage.runchambers.com" class="hidden px-3 py-2 text-[13.5px] sm:inline-flex">Login</a><a href="index.html#trial" class="inline-flex rounded-full px-4 py-2 text-[13px] font-medium" style="background:#391E03;color:#FBFBFA">Start Free Trial</a></div>
+      </div>
+    </header>
+
+    <main class="px-8 pb-24 pt-32">
+      <div class="mx-auto max-w-[1160px]">
+        <h1 class="mt-5 text-[clamp(54px,7vw,96px)] leading-[.95]" style="font-family:var(--font-serif);font-weight:400">Frequently asked questions</h1>
+
+        <div class="mt-16 grid gap-12 md:grid-cols-[250px_1fr] md:gap-16">
+          <aside class="h-fit rounded-[14px] p-3" style="background:#F3EEE6">
+            <a class="faq-category active block rounded-[10px] px-4 py-3 text-[14px]" href="#general">General</a>
+            <a class="faq-category block rounded-[10px] px-4 py-3 text-[14px]" href="#admin">Admin &amp; Team Management</a>
+            <a class="faq-category block rounded-[10px] px-4 py-3 text-[14px]" href="#support">Support</a>
+            <a class="faq-category block rounded-[10px] px-4 py-3 text-[14px]" href="#billing">Pricing &amp; Billing</a>
+          </aside>
+
+          <div class="space-y-12">
+            <section id="general" class="faq-section active scroll-mt-24"><h2>General</h2><div class="faq-list"><details><summary>What is Chambers?</summary><p>Chambers is a legal operating system built for Indian advocates and small-to-mid-size law firms. It consolidates case management, task workflows, document storage, legal research, and AI-powered tools into a single workspace so you can focus on your practice, not your software.</p></details><details><summary>Who is Chambers for?</summary><p>Chambers is built specifically for practising advocates who want reliable, fast case management on their phone; boutique law firms and chambers managing multiple cases and team members; junior associates and paralegals who need clear workflows and task visibility; and managing partners who want visibility and control without complex configuration.</p></details><details><summary>Is Chambers available on mobile?</summary><p>Yes. Chambers is designed to work seamlessly on mobile and desktop, reflecting how Indian advocates actually work.</p></details></div></section>
+            <section id="admin" class="faq-section scroll-mt-24"><h2>Admin &amp; Team Management</h2><div class="faq-list"><details><summary>How do I invite team members to Chambers?</summary><p>As an admin, go to Team Management and click “Invite Member.” Enter their email, set their role, and they'll receive an invite to join your workspace.</p></details><details><summary>Can I change a team member's role?</summary><p>Yes. Workspace owners can update roles from the Team Management section.</p></details><details><summary>What if a team member leaves?</summary><p>You can deactivate their account from Team Management. Their past work (Matters, Tasks, documents) remains in your workspace and can be reassigned to others.</p></details><details><summary>How many team members can I add?</summary><p>There's no limit on team members – add as per your firm’s team structure.</p></details></div></section>
+            <section id="support" class="faq-section scroll-mt-24"><h2>Support</h2><div class="faq-list"><details><summary>How do I contact support?</summary><p>Email us at team@runchambers.com with any questions or issues. Our support team is available Monday to Friday, 10 am to 5 pm IST.</p></details><details><summary>What if my question isn't answered in the FAQs?</summary><p>Check the how-to videos – they cover common workflows step-by-step. If you still don't find an answer, email us at team@runchambers.com and we'll help you.</p></details></div></section>
+            <section id="billing" class="faq-section scroll-mt-24"><h2>Pricing &amp; Billing</h2><div class="faq-list"><details><summary>Do you offer a free trial?</summary><p>Yes. You can use Chambers free for 30 days with full access to all features. After 30 days, you need to upgrade to a paid plan to continue using Chambers.</p></details></div></section>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <style>
+    .faq-category{color:#391E03a8;transition:background .2s,color .2s}.faq-category:hover,.faq-category.active{background:#E6D7C3;color:#391E03}
+    .faq-section h2{font-family:var(--font-serif);font-size:clamp(30px,3.4vw,46px);font-weight:400;line-height:1.05;margin-bottom:20px}
+    .faq-list{border-top:1px solid #391E0326}.faq-list details{border-bottom:1px solid #391E0326}.faq-list summary{cursor:pointer;list-style:none;padding:24px 44px 24px 0;position:relative;font-size:16px;font-weight:500}.faq-list summary::-webkit-details-marker{display:none}.faq-list summary::after{content:'⌄';position:absolute;right:8px;top:22px;font-size:20px;line-height:1;transition:transform .2s}.faq-list details[open] summary::after{transform:rotate(180deg)}.faq-list p{max-width:none;padding:0 44px 24px 0;color:#391E03a8;font-size:14px;line-height:1.65}
+    @media(max-width:767px){.faq-category{display:inline-block;margin:2px}.faq-section h2{margin-top:8px}.faq-list summary{font-size:15px}}
+  </style>
+  <script>
+    const categories = document.querySelectorAll('.faq-category');
+    const sections = document.querySelectorAll('.faq-section');
+    const showCategory = (id, updateHash = true) => {
+      categories.forEach(category => category.classList.toggle('active', category.getAttribute('href') === `#${id}`));
+      sections.forEach(section => {
+        const visible = section.id === id;
+        section.classList.toggle('active', visible);
+        section.hidden = !visible;
+        section.querySelectorAll('details').forEach(detail => { detail.open = false; });
+      });
+      if (updateHash) history.replaceState(null, '', `#${id}`);
+    };
+    categories.forEach(category => category.addEventListener('click', event => {
+      event.preventDefault();
+      showCategory(category.getAttribute('href').slice(1));
+    }));
+    document.querySelectorAll('.faq-section details').forEach(detail => detail.addEventListener('toggle', () => {
+      if (detail.open) document.querySelectorAll('.faq-section details').forEach(other => { if (other !== detail) other.open = false; });
+    }));
+    showCategory(location.hash.slice(1) || 'general', false);
+  </script>
+</body>
+</html>
