@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="icon" href="/assets/images/logo.png">
+<title>{{ page.title }} — Chambers</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{{ page.title }} — Chambers">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/assets/css/style.css?v=2">
+</head>
+<body>
+<div class="min-h-screen" style="background:#FBFBFA;color:#391E03;font-family:var(--font-sans)">
+{% include header.html %}
+<main>
+{{ content }}
+</main>
+{% include footer.html %}
+</div>
+<script>
+// Give the fixed header a background once the page scrolls, so content
+// does not run underneath it illegibly.
+(function () {
+  var h = document.getElementById('site-header');
+  if (!h) return;
+  function update() { h.classList.toggle('is-scrolled', window.scrollY > 8); }
+  update();
+  addEventListener('scroll', update, { passive: true });
+})();
+</script>
+</body>
+</html>

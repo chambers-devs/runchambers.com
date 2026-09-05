@@ -1,0 +1,31 @@
+---
+layout: default
+title: Blog
+description: Notes on legal practice, technology, and how Indian law firms run their work.
+permalink: /blog/
+---
+<section class="pt-36 pb-28" style="background:#FBFBFA">
+<div class="mx-auto max-w-[1280px] px-8">
+<div class="flex items-center gap-3 text-[11.5px] uppercase tracking-[0.22em]" style="color:#391E0388;font-family:var(--font-sans)"><span class="h-px w-8" style="background:#391E0355"></span>Blog</div>
+<h1 class="mt-6 max-w-[20ch] text-[clamp(36px,4.6vw,68px)] leading-[1.02] tracking-[-0.015em]" style="font-family:var(--font-serif);color:#391E03;font-weight:400">Notes from <em class="italic" style="color:#391E0399">the chambers.</em></h1>
+<div class="mt-14">
+{% if site.posts.size == 0 %}
+<p class="text-[15.5px]" style="font-family:var(--font-sans);color:#391E03aa">No articles yet.</p>
+{% else %}
+<div class="space-y-px" style="background:#391E031a">
+{% for post in site.posts %}
+<article class="grid grid-cols-1 gap-8 p-12 md:grid-cols-12" style="background:#FBFBFA">
+<div class="md:col-span-3 text-[12.5px] uppercase tracking-[0.18em]" style="font-family:var(--font-sans);color:#391E0388">
+<time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %B %Y" }}</time>
+</div>
+<div class="md:col-span-9">
+<h2 class="text-[clamp(24px,2.6vw,38px)] leading-[1.15]" style="font-family:var(--font-serif);color:#391E03"><a href="{{ post.url }}" class="hover:underline underline-offset-4">{{ post.title }}</a></h2>
+{% if post.description %}<p class="mt-3 text-[15px] leading-[1.6]" style="font-family:var(--font-sans);color:#391E03aa">{{ post.description }}</p>{% endif %}
+</div>
+</article>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+</div>
+</section>

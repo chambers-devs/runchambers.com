@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<section class="pt-36 pb-28" style="background:#FBFBFA">
+<div class="mx-auto max-w-[1280px] px-8">
+<div class="flex items-center gap-3 text-[11.5px] uppercase tracking-[0.22em]" style="color:#391E0388;font-family:var(--font-sans)"><span class="h-px w-8" style="background:#391E0355"></span><a href="/blog/" class="hover:underline underline-offset-4">Blog</a></div>
+<h1 class="mt-6 max-w-[26ch] text-[clamp(36px,4.6vw,68px)] leading-[1.02] tracking-[-0.015em]" style="font-family:var(--font-serif);color:#391E03;font-weight:400">{{ page.title }}</h1>
+<div class="mt-6 text-[12.5px] uppercase tracking-[0.18em]" style="font-family:var(--font-sans);color:#391E0388">
+<time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %B %Y" }}</time>{% if page.author %} · {{ page.author }}{% endif %}
+</div>
+<div class="prose mt-14 max-w-[68ch]">
+{{ content }}
+</div>
+<div class="mt-16">
+<a href="/blog/" class="text-[13.5px] underline underline-offset-4" style="font-family:var(--font-sans);color:#391E03">← All articles</a>
+</div>
+</div>
+</section>

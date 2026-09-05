@@ -1,0 +1,20 @@
+title: Chambers
+description: The operating system for modern legal practice.
+url: https://runchambers.com
+timezone: Asia/Kolkata
+
+# Posts in _posts/ are published at /blog/<filename-slug>/
+permalink: /blog/:title/
+
+# Every post uses the post layout without needing to say so in its front matter.
+defaults:
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - .gitignore
+  - .DS_Store
