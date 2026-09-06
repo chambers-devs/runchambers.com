@@ -243,6 +243,14 @@ Avoid adding frameworks, tracking, or large client-side behavior without an
 explicit requirement. If a new interactive component is necessary, favor small,
 accessible, progressive-enhancement code.
 
+## Open questions
+
+- Contact form submission flow: decide with the team whether submissions should
+  continue using the temporary email flow or be sent to a Google Sheet through a
+  dedicated endpoint.
+- Contact form thank-you experience: decide whether to add a post-submission
+  thank-you screen with a button back to the homepage.
+
 ## Quality checks before handoff
 
 - Inspect `git diff` to ensure only intended files changed.
