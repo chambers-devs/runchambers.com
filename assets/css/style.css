@@ -78,6 +78,7 @@
 .cb-nav-dropdown-link{color:#391E03cc;padding:10px 12px;border-radius:8px}
 .cb-nav-dropdown-link:hover{background:#D8D3B033;color:#391E03}
 .cb-nav-dropdown-title{color:#391E03;text-shadow:none}
+.cb-nav-dropdown-link,.cb-nav-dropdown-title{font-family:var(--font-sans)}
 .cb-nav-dropdown-description{display:block;margin-top:2px;font-size:11px;line-height:1.35;color:#391E0388}
 .cb-nav-dropdown::after{content:"";position:absolute;top:100%;left:0;width:100%;height:12px}
 .cb-nav-dropdown > a::after{content:"⌄";display:inline-block;margin-left:7px;font-size:14px;line-height:1;vertical-align:middle;transform:translateY(-4px)}
@@ -92,4 +93,10 @@
 @media (min-width:768px){
   .md\:col-span-3{grid-column:span 3 / span 3}
   .md\:col-span-9{grid-column:span 9 / span 9}
+}
+
+/* Homepage eyebrow headings share the About page's stronger label treatment. */
+body:has(main > section#product) main > section [class*="text-[11.5px]"]{
+  font-size:14px;
+  font-weight:700;
 }
