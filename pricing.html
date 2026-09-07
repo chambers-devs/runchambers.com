@@ -36,6 +36,14 @@
   cards.insertAdjacentHTML('beforebegin', '<h1 class="mx-auto mt-5 max-w-[760px] text-center text-[19px] leading-[1.5]" style="font-family:var(--font-sans);color:#391E03;font-weight:600">Chambers pricing for advocates, firms &amp; enterprises</h1>');
   cards.classList.remove('mt-10');
   cards.classList.add('mt-10');
+  var trialLink = document.querySelector('#site-header a[href="index.html#trial"]');
+  if (trialLink) trialLink.remove();
+  var loginLink = document.querySelector('#site-header a[href="https://stage.runchambers.com"]');
+  if (loginLink) {
+    loginLink.className = 'hidden sm:inline-flex items-center rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors hover:bg-[#F3EEE6]';
+    loginLink.style.color = '#391E03';
+    loginLink.style.borderColor = '#391E0333';
+  }
 
   var plans = cards.querySelectorAll(':scope > div > div');
   var planItems = function (items, color) {

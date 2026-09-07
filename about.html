@@ -63,5 +63,18 @@
 <footer class="pt-24 pb-12" style="background:#FBFBFA;border-top:1px solid #391E031f"><div class="mx-auto max-w-[1280px] px-8"><div class="grid grid-cols-2 gap-10 md:grid-cols-4"><div class="md:col-span-1"><div class="flex items-center gap-2.5"><img src="assets/images/logo.png" alt="Chambers" width="26" height="26" style="width:26px;height:26px"><span class="text-[20px] tracking-tight" style="font-family:var(--font-serif);color:#391E03">Chambers</span></div></div><div><div class="text-[11px] uppercase tracking-[0.22em]" style="font-family:var(--font-sans);color:#391E0388">Product</div><ul class="mt-5 space-y-2.5 text-[13.5px]" style="font-family:var(--font-sans);color:#391E03c0"><li><a href="index.html#vault">ChamberVault</a></li><li><a href="index.html#flow">ChamberFlow</a></li><li><a href="index.html#judgment-portal">Judgment Portal</a></li></ul></div><div><div class="text-[11px] uppercase tracking-[0.22em]" style="font-family:var(--font-sans);color:#391E0388">Resources</div><ul class="mt-5 space-y-2.5 text-[13.5px]" style="font-family:var(--font-sans);color:#391E03c0"><li><a href="/blog/">Blog</a></li><li><a href="faqs.html">FAQs</a></li><li><a href="mailto:team@runchambers.com">Support</a></li></ul></div><div><div class="text-[11px] uppercase tracking-[0.22em]" style="font-family:var(--font-sans);color:#391E0388">Legal</div><ul class="mt-5 space-y-2.5 text-[13.5px]" style="font-family:var(--font-sans);color:#391E03c0"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="tos.html">Terms of Use</a></li><li><a href="refund.html">Refund/Cancellation Policy</a></li><li><a href="mailto:team@runchambers.com">Contact details</a></li></ul></div></div><div class="mt-16 flex flex-wrap items-center justify-between gap-4 border-t pt-6 text-[12px]" style="border-color:#391E031a;font-family:var(--font-sans);color:#391E0388"><div>© 2026 Kalpavriksha Partners LLP</div><div class="flex gap-5"><a href="https://www.instagram.com/runchambers">Instagram</a><a href="https://www.linkedin.com/company/runchambers/">LinkedIn</a><a href="https://www.facebook.com/people/RunChambers/61593220809164/">Facebook</a><a href="https://x.com/runchambers">X</a></div></div></div></footer>
 </div>
 <script>(function(){var h=document.getElementById('site-header');function update(){h.classList.toggle('is-scrolled',window.scrollY>8)}update();addEventListener('scroll',update,{passive:true})})();</script>
+<script>
+(function () {
+  var trialLink = document.querySelector('#site-header a[href="index.html#trial"]');
+  if (trialLink) trialLink.remove();
+
+  var loginLink = document.querySelector('#site-header a[href="https://stage.runchambers.com"]');
+  if (loginLink) {
+    loginLink.className = 'hidden sm:inline-flex items-center rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors hover:bg-[#F3EEE6]';
+    loginLink.style.color = '#391E03';
+    loginLink.style.borderColor = '#391E0333';
+  }
+})();
+</script>
 </body>
 </html>
