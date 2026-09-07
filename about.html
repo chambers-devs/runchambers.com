@@ -65,6 +65,12 @@
 <script>(function(){var h=document.getElementById('site-header');function update(){h.classList.toggle('is-scrolled',window.scrollY>8)}update();addEventListener('scroll',update,{passive:true})})();</script>
 <script>
 (function () {
+  var nav = document.querySelector('#site-header nav');
+  if (nav) {
+    nav.className = 'hidden md:flex items-center gap-9 text-[16px]';
+    nav.innerHTML = '<div class="cb-nav-dropdown"><span class="transition-colors" style="--espresso:#391E03">Products</span><div class="cb-nav-dropdown-panel"><a href="index.html#vault" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">ChamberVault</span></a><a href="index.html#flow" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">ChamberFlow</span></a><a href="index.html#judgment-portal" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">Judgment Portal</span></a></div></div><a href="about.html" class="transition-colors hover:text-[color:var(--espresso)]" style="--espresso:#391E03" aria-current="page">About</a><div class="cb-nav-dropdown"><span class="transition-colors" style="--espresso:#391E03">Resources</span><div class="cb-nav-dropdown-panel"><a href="/blog/" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">Blog</span></a><a href="faqs.html" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">FAQs</span></a></div></div><a href="pricing.html" class="transition-colors hover:text-[color:var(--espresso)]" style="--espresso:#391E03">Pricing</a><a href="contact.html" class="transition-colors hover:text-[color:var(--espresso)]" style="--espresso:#391E03">Contact Us</a>';
+  }
+
   var trialLink = document.querySelector('#site-header a[href="index.html#trial"]');
   if (trialLink) trialLink.remove();
 
@@ -74,6 +80,8 @@
     loginLink.style.color = '#391E03';
     loginLink.style.borderColor = '#391E0333';
   }
+  var contactLink = document.querySelector('#site-header a[href="mailto:team@runchambers.com"]');
+  if (contactLink) contactLink.href = 'contact.html';
 })();
 </script>
 </body>

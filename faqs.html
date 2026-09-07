@@ -17,10 +17,14 @@
     <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-8">
         <a class="flex items-center gap-2.5" href="index.html" style="color:#391E03"><img src="assets/images/logo.png" alt="Chambers" width="26" height="26"><span class="text-[20px] tracking-tight" style="font-family:var(--font-serif)">Chambers</span></a>
-        <nav class="hidden items-center gap-9 text-[13.5px] md:flex" style="color:#391E03cc">
-          <span>Products</span><a href="index.html#about">About</a><span aria-current="page">Resources</span><a href="pricing.html">Pricing</a><a href="mailto:team@runchambers.com">Contact Us</a>
+        <nav class="hidden items-center gap-9 text-[16px] md:flex" style="color:#391E03cc">
+          <div class="cb-nav-dropdown"><span class="transition-colors" style="--espresso:#391E03">Products</span><div class="cb-nav-dropdown-panel"><a href="index.html#vault" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">ChamberVault</span></a><a href="index.html#flow" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">ChamberFlow</span></a><a href="index.html#judgment-portal" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">Judgment Portal</span></a></div></div>
+          <a href="about.html" class="transition-colors hover:text-[color:var(--espresso)]" style="--espresso:#391E03">About</a>
+          <div class="cb-nav-dropdown"><span class="transition-colors" style="--espresso:#391E03">Resources</span><div class="cb-nav-dropdown-panel"><a href="/blog/" class="cb-nav-dropdown-link"><span class="cb-nav-dropdown-title">Blog</span></a><a href="faqs.html" class="cb-nav-dropdown-link" aria-current="page"><span class="cb-nav-dropdown-title">FAQs</span></a></div></div>
+          <a href="pricing.html" class="transition-colors hover:text-[color:var(--espresso)]" style="--espresso:#391E03">Pricing</a>
+          <a href="contact.html" class="transition-colors hover:text-[color:var(--espresso)]" style="--espresso:#391E03">Contact Us</a>
         </nav>
-        <div class="flex items-center gap-2"><a href="https://stage.runchambers.com" class="hidden px-3 py-2 text-[13.5px] sm:inline-flex">Login</a><a href="index.html#trial" class="inline-flex rounded-full px-4 py-2 text-[13px] font-medium" style="background:#391E03;color:#FBFBFA">Start Free Trial</a></div>
+        <div class="flex items-center gap-2"><a href="https://stage.runchambers.com" class="hidden sm:inline-flex items-center rounded-full border px-4 py-2 text-[13.5px] font-medium transition-colors hover:bg-[#F3EEE6]" style="color:#391E03;border-color:#391E0333">Login</a></div>
       </div>
     </header>
 

@@ -44,6 +44,10 @@
     loginLink.style.color = '#391E03';
     loginLink.style.borderColor = '#391E0333';
   }
+  var contactLink = document.querySelector('#site-header a[href="mailto:team@runchambers.com"]');
+  if (contactLink) contactLink.href = 'contact.html';
+  var cardContactLink = document.querySelector('#pricing a[href="mailto:team@runchambers.com"]');
+  if (cardContactLink) cardContactLink.href = 'contact.html';
 
   var plans = cards.querySelectorAll(':scope > div > div');
   var planItems = function (items, color) {
