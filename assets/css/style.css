@@ -100,3 +100,37 @@ body:has(main > section#product) main > section [class*="text-[11.5px]"]{
   font-size:14px;
   font-weight:700;
 }
+
+/* --- Mobile (below Tailwind's md breakpoint) ---------------------------------
+   The compiled Tailwind build has no md: variants of the padding utilities and
+   the header is duplicated across every page, so desktop spacing utilities are
+   scaled down here instead of re-classing nine files. The body prefix outranks
+   the FAQ page runtime Tailwind CDN, which re-declares these utilities later. */
+@media (max-width:767px){
+  body .px-8{padding-inline:1.25rem}
+  body .p-12,body .p-10,body .p-8{padding:1.5rem 1.25rem}
+  body .p-7{padding:1.25rem}
+  body .pt-36{padding-top:7rem}
+  body .pb-28{padding-bottom:4rem}
+  body .mt-16{margin-top:2.5rem}
+  body .mt-14{margin-top:2rem}
+  body .gap-12{gap:2rem}
+  body .gap-10{gap:1.5rem}
+  .prose h2{font-size:26px}
+  input,select,textarea{font-size:16px} /* iOS Safari zooms into controls smaller than 16px */
+}
+
+/* Mobile navigation: a native <details> so it works without JavaScript.
+   Hidden from md up, where the hover dropdown nav takes over. */
+.cb-mobile-nav summary{list-style:none;display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin-right:-8px;border-radius:999px;cursor:pointer;color:#391E03}
+.cb-mobile-nav summary::-webkit-details-marker{display:none}
+.cb-mobile-nav summary:hover{background:#391E030d}
+.cb-mobile-nav .cb-nav-close{display:none}
+.cb-mobile-nav[open] .cb-nav-close{display:block}
+.cb-mobile-nav[open] .cb-nav-open{display:none}
+.cb-mobile-nav nav{position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 64px);overflow-y:auto;padding:4px 20px 20px;background:#FBFBFA;border-bottom:1px solid #391E031f;box-shadow:0 24px 48px -24px rgba(57,30,3,.3);font-family:var(--font-sans)}
+.cb-mobile-nav nav a{display:block;padding:12px 0;font-size:17px;color:#391E03;text-decoration:none;border-bottom:1px solid #391E0314}
+.cb-mobile-nav nav a:last-child{border-bottom:0}
+.cb-mobile-nav-group{padding:14px 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:#391E0388}
+#site-header:has(.cb-mobile-nav[open]){background-color:#FBFBFA;border-bottom-color:#391E031f}
+@media (min-width:768px){.cb-mobile-nav{display:none}}

@@ -94,7 +94,11 @@ styles.
 ### Navigation behavior and known gaps
 
 - Desktop navigation has Products and Resources hover dropdowns. It is hidden
-  below the `md` breakpoint; the logo, Login, and primary CTA remain.
+  below the `md` breakpoint, where a `<details class="cb-mobile-nav">` menu
+  button takes over (a flat list of every nav link plus Login; styled in the
+  hand-authored CSS, no JavaScript required). Login is hidden below `sm`; the
+  logo, primary CTA, and menu button remain. The menu markup is duplicated in
+  every page header and in `_includes/header.html`; keep them in sync.
 - `index.html#about` is intentionally intercepted in `index.html` and sent to
   `about.html`. Prefer `about.html` for new links.
 - Login points to `https://stage.runchambers.com`; contact/support use
@@ -179,7 +183,9 @@ surfaces use off-white text and the light accent for bullets.
   build. Make targeted edits only in its hand-authored section at the end unless
   intentionally replacing the generated CSS.
 - The final rules define `--page-*` colors, header scroll state, legal `.prose`
-  typography, and the `.cb-nav-dropdown*` menu system. Later duplicated CSS
+  typography, the `.cb-nav-dropdown*` menu system, a `max-width:767px` block
+  that scales the desktop spacing utilities (`px-8`, `p-8/10/12`, `pt-36`, ...)
+  down for phones, and the `.cb-mobile-nav` menu. Later duplicated CSS
   selectors override earlier ones; read the final declaration before changing a
   shared dropdown rule.
 - Legal-page body content uses `.prose`. Maintain its readable 15.5px/1.7
