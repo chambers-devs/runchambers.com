@@ -54,6 +54,7 @@ index.html                 Homepage and product landing page
 about.html                 Company and product-context page
 pricing.html               Free and customised plan page
 faqs.html                  Filtered FAQ/accordion page
+security.html              Security/trust page (residency, encryption, access)
 privacy.html               Privacy Policy
 tos.html                   Terms of Service
 refund.html                Refund & Cancellation Policy placeholder
@@ -78,6 +79,7 @@ styles.
 | `/about.html` | About | Mission, audience, and the three-product overview. |
 | `/pricing.html` | Pricing | Free and customised plans. |
 | `/faqs.html` | FAQs | Four hash-addressable categories. |
+| `/security.html` | Security | Trust page: India data residency, encryption at rest/in transit, access controls. |
 | `/privacy.html` | Privacy Policy | Legal prose page. |
 | `/tos.html` | Terms of Service | Legal prose page. |
 | `/refund.html` | Refund & Cancellation Policy | Temporary placeholder until paid plans launch. |

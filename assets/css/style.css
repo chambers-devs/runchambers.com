@@ -134,3 +134,10 @@ body:has(main > section#product) main > section [class*="text-[11.5px]"]{
 .cb-mobile-nav-group{padding:14px 0 4px;font-size:11px;text-transform:uppercase;letter-spacing:.2em;color:#391E0388}
 #site-header:has(.cb-mobile-nav[open]){background-color:#FBFBFA;border-bottom-color:#391E031f}
 @media (min-width:768px){.cb-mobile-nav{display:none}}
+
+/* Header nav tightens between md and lg: six top-level items (Products, About,
+   Resources, Pricing, Security, Contact Us) overflow `gap-9` on a 768px viewport
+   and the compiled Tailwind build has no md:/lg: gap variants to class against. */
+@media (min-width:768px) and (max-width:1023px){
+  #site-header nav.gap-9{gap:1.25rem;font-size:14.5px}
+}
