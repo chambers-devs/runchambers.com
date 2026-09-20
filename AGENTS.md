@@ -126,6 +126,11 @@ styles.
 6. **Designed for real legal work**: three concise practical outcomes.
 7. Shared footer.
 
+Every page now has the footer, including `faqs.html` (it had none before). The
+footer's look lives in the "Footer" block at the end of `assets/css/style.css`; its
+markup adds a tagline and a "Back to top" link, and on subpages the Product links
+must point at `index.html#...` (bare `#vault` only works on the home page).
+
 The site header and footer are duplicated across active HTML pages, with a
 slimmer header on `refund.html`. When changing shared structure, labels, contact
 details, routes, or legal links, update every relevant page in the same change.
@@ -138,10 +143,13 @@ This is a static site, not a component system.
 - **Instrument Serif** — display headings, brand wordmark, product names, and
   occasional italic emphasis. Use normal weight `400`; italic is used to soften
   or emphasize part of a headline.
-- **Inter** — navigation, body copy, labels, controls, cards, and metadata.
-  Available weights: 400, 500, 600, and 700.
-- Fonts are loaded with Google Fonts in each page. Keep the existing preconnect
-  and stylesheet links when creating a new page.
+- **Helvetica Neue** — navigation, body copy, labels, controls, cards, and
+  metadata (`--font-sans`, falling back to Helvetica, Arial, then system sans).
+  It is a system font, not a web font: it ships with macOS and iOS and falls
+  back to Arial elsewhere. Weights 400, 500, and 700 render distinctly; 600
+  renders as bold.
+- Only Instrument Serif is loaded from Google Fonts. Keep the existing
+  preconnect and stylesheet links when creating a new page.
 
 ### Core palette
 
@@ -162,13 +170,22 @@ surfaces use off-white text and the light accent for bullets.
 
 ### Layout and interaction conventions
 
-- Main content containers are normally `max-w-[1280px] px-8` and centered.
+- Layout system (v2, hand-authored at the end of `assets/css/style.css`): one
+  container (`.cb-container`, 1360px max, fluid `--gutter`), a spacing scale
+  (`--space-*`) and `--section-y` for section rhythm. Page patterns:
+  `.cb-hero` (headline + pitch, product shot as the hero visual), `.cb-split`
+  (heading left, content right), `.cb-panels` (alternating product rows),
+  `.cb-stats-grid`, `.cb-page-head` + `.cb-doc` / `.cb-doc-section` (editorial
+  inner pages: h2 in a left rail, body in a right column), `.cb-plans`,
+  `.cb-contact`, `.cb-faq`. Card type is `.cb-card-title` / `.cb-card-body`.
+  The old `max-w-[1280px]` class is overridden to the same container width, so
+  the header and footer follow it automatically.
 - The fixed header is 64px tall (`h-16`) and begins transparent. The small page
   script adds `.is-scrolled` after 8px of scroll, creating a translucent,
   blurred off-white background and a subtle border.
 - Headline sizes use `clamp()` and Instrument Serif; common large-heading values
   are `clamp(36px,4.6vw,68px)`. The homepage hero is larger.
-- Eyebrows are compact Inter labels: around 11–12px, uppercase, and widely
+- Eyebrows are compact Helvetica Neue labels: around 11–12px, uppercase, and widely
   tracked. Body copy generally runs 14–18px with generous line-height.
 - Primary CTAs are espresso-filled, off-white, medium-weight, pill-shaped
   buttons. Secondary CTAs are pill-shaped with a subtle espresso outline.
@@ -178,6 +195,34 @@ surfaces use off-white text and the light accent for bullets.
   desktop-only layouts without a readable single-column mobile treatment.
 - The product screenshots use meaningful `alt` text and `loading="lazy"`. Keep
   both practices for added imagery.
+
+### Motion system
+
+- `assets/js/motion.js` (no dependencies, loaded at the end of every page and in
+  `_layouts/default.html`) plus the "Motion system" block at the end of
+  `assets/css/style.css`. Every page also carries a one-line `<head>` snippet that
+  adds `html.js` and, unless the visitor prefers reduced motion, `html.motion`.
+  All hiding/offset states are keyed to `html.motion`, so reduced-motion visitors
+  (and anyone whose script fails) get the plain finished page. Each hidden state
+  has a timed CSS failsafe that reveals it anyway.
+- Elements are tagged for reveal from JS by selector (see `initReveals`), not in
+  the markup: to animate a new component, add its selector there. Headings
+  (`.cb-h2`, `.cb-page-title`, `.cb-hero-title`) are split into words and rise out
+  of a mask; the original text is kept as `aria-label`.
+- Only `transform`, `opacity`, `clip-path` and the individual `translate` /
+  `scale` / `rotate` properties are animated. Pointer effects (hero tilt, pricing
+  card tilt) run only on hover-capable, non-phone screens.
+- Second-pass effects: headline words rise with a tilt and a spring; the dashboard
+  lands in 3D when it scrolls into view (not on a load timer) and recedes as you scroll away; rows slide in, draw their rules and brighten toward
+  the middle of the screen; screenshots arrive from alternating sides and tilt on
+  hover; stats pop when their count lands. Pages
+  cross-fade via `@view-transition` (Chromium-based browsers; a plain navigation
+  elsewhere) while the header stays put.
+- Cache-busting: every page links `style.css?v=N` and `motion.js?v=N`. Bump the
+  number on ALL pages (and `_layouts/default.html`) whenever either file changes,
+  or visitors keep the old copy.
+- There is deliberately no custom cursor, no page loader, no progress bar and no
+  effect on buttons beyond the normal hover colour change.
 
 ### Shared CSS notes
 
