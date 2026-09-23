@@ -126,9 +126,9 @@
 .cb-mobile-nav[open] .cb-nav-close{display:block}
 .cb-mobile-nav[open] .cb-nav-open{display:none}
 .cb-mobile-nav nav{position:absolute;top:100%;left:0;right:0;max-height:calc(100dvh - 64px);overflow-y:auto;padding:4px 20px 20px;background:#FBFBFA;border-bottom:1px solid #391E031f;box-shadow:0 24px 48px -24px rgba(57,30,3,.3);font-family:var(--font-sans)}
-.cb-mobile-nav nav a{display:block;padding:12px 0;font-size:17px;color:#391E03;text-decoration:none;border-bottom:1px solid #391E0314}
-.cb-mobile-nav nav a:last-child{border-bottom:0}
-.cb-mobile-nav-group{padding:14px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:var(--tracking-label);color:#391E0388}
+.cb-mobile-nav nav a{display:block;padding:7px 0;font-size:17px;color:#391E03;text-decoration:none}
+.cb-mobile-nav-group{padding:26px 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:var(--tracking-label);color:#391E0388}
+.cb-mobile-nav-group:first-child{padding-top:2px}
 #site-header:has(.cb-mobile-nav[open]){background-color:#FBFBFA;border-bottom-color:#391E031f}
 @media (min-width:768px){.cb-mobile-nav{display:none}}
 
@@ -216,12 +216,12 @@ footer [class*="text-[11px]"][class*="uppercase"]{font-size:12px;font-weight:500
 .field-error{margin-top:var(--space-1)}
 
 /* Navigation orientation: current page is marked in the header and footer. */
-#site-header nav > a[aria-current="page"],
-#site-header nav > .cb-nav-dropdown:has([aria-current="page"]) > span{
+#site-header nav:not([aria-label="Mobile"]) > a[aria-current="page"],
+#site-header nav:not([aria-label="Mobile"]) > .cb-nav-dropdown:has([aria-current="page"]) > span{
   color:var(--ink);font-weight:600;
   text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:10px;
 }
-#site-header nav > a:not([aria-current]):hover{color:var(--ink)}
+#site-header nav:not([aria-label="Mobile"]) > a:not([aria-current]):hover{color:var(--ink)}
 .cb-nav-dropdown-link[aria-current="page"]{background:#D8D3B055;color:var(--ink);font-weight:600}
 .cb-mobile-nav nav a[aria-current="page"]{font-weight:600;box-shadow:inset 3px 0 0 var(--ink);padding-left:12px}
 footer a[aria-current="page"]{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:4px}
@@ -309,12 +309,33 @@ body .px-8.max-w-\[1280px\]{padding-inline:var(--gutter)}
 /* Sections */
 .cb-section{padding-block:var(--section-y)}
 .cb-section--tint{background:var(--page-tint)!important;border-top:0!important}
+
 .cb-split{display:grid;gap:var(--space-12)}
 @media (min-width:900px){
   .cb-split{grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(48px,8vw,128px);align-items:start}
   .cb-split--stats{grid-template-columns:minmax(0,4fr) minmax(0,8fr)}
   .cb-split-head{position:sticky;top:112px}
 }
+
+/* Problem: each row can carry a wide illustration beside its text (only row
+   01 has one so far — 02/03 stay plain until their own images arrive). A
+   short rule under the text stands in for where the image would continue. */
+#problem .cb-row > div{position:relative}
+#problem .cb-row > div::after{content:"";display:block;width:28px;height:1px;background:var(--ink-soft);opacity:.5;margin-top:var(--space-4)}
+.cb-row-thumb{grid-column:2;justify-self:center;margin-top:var(--space-4);width:auto;height:110px;max-width:100%;display:block;border-radius:8px;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 94%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0%,#000 6%,#000 94%,transparent 100%)}
+@media (min-width:640px){
+  /* Fixed (not auto) third column: each row's image has a different intrinsic
+     aspect ratio, so an auto column would size itself per row and the images
+     would land at different x-positions. A fixed slot keeps them in line. */
+  .cb-row--illustrated{grid-template-columns:48px minmax(0,1fr) 160px;align-items:center;column-gap:var(--space-6)}
+  .cb-row-thumb{grid-column:3;justify-self:end;margin-top:0;width:auto;height:78px;max-width:160px}
+}
+/* The calendar illustration's own content sits right-heavy within its frame
+   (sticky notes cluster on the right), so it reads as off-centre even when
+   its bounding box is centred/aligned like the others — nudge it left. */
+.cb-row-thumb--nudge-left{translate:-14px 0}
 
 /* Problem: ruled rows */
 .cb-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-strong)}
@@ -545,11 +566,11 @@ html.motion .cb-hero-visual.is-in .cb-hero-dash{animation:cb-dash 2s cubic-bezie
 .cb-hero-visual .cb-container{will-change:transform,translate}
 
 /* --- Navigation ------------------------------------------------------------ */
-#site-header nav > a,#site-header nav > .cb-nav-dropdown > span{position:relative;display:inline-block}
-#site-header nav > a::after,#site-header nav > .cb-nav-dropdown > span::before{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:var(--ink);transform:scaleX(0);transform-origin:right center;transition:transform .5s var(--ease-out)}
-#site-header nav > a:hover::after,#site-header nav > .cb-nav-dropdown:hover > span::before,
-#site-header nav > a[aria-current="page"]::after,#site-header nav > .cb-nav-dropdown:has([aria-current="page"]) > span::before{transform:scaleX(1);transform-origin:left center}
-#site-header nav > a[aria-current="page"],#site-header nav > .cb-nav-dropdown:has([aria-current="page"]) > span{text-decoration:none}
+#site-header nav:not([aria-label="Mobile"]) > a,#site-header nav:not([aria-label="Mobile"]) > .cb-nav-dropdown > span{position:relative;display:inline-block}
+#site-header nav:not([aria-label="Mobile"]) > a::after,#site-header nav:not([aria-label="Mobile"]) > .cb-nav-dropdown > span::before{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;border-radius:2px;background:var(--ink);transform:scaleX(0);transform-origin:right center;transition:transform .5s var(--ease-out)}
+#site-header nav:not([aria-label="Mobile"]) > a:hover::after,#site-header nav:not([aria-label="Mobile"]) > .cb-nav-dropdown:hover > span::before,
+#site-header nav:not([aria-label="Mobile"]) > a[aria-current="page"]::after,#site-header nav:not([aria-label="Mobile"]) > .cb-nav-dropdown:has([aria-current="page"]) > span::before{transform:scaleX(1);transform-origin:left center}
+#site-header nav:not([aria-label="Mobile"]) > a[aria-current="page"],#site-header nav:not([aria-label="Mobile"]) > .cb-nav-dropdown:has([aria-current="page"]) > span{text-decoration:none}
 html.motion .cb-mobile-nav[open] nav{animation:cb-menu-in .4s var(--ease-out) both}
 @keyframes cb-menu-in{from{opacity:0;translate:0 -12px}to{opacity:1;translate:0 0}}
 html.motion .cb-mobile-nav[open] nav > *{animation:cb-fade-up .55s var(--ease-out) both}
